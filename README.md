@@ -1,4 +1,4 @@
-[<img src="https://ipfs.io/ipfs/QmS4hxinTvLiMxQsS6PmnuVoagmFp3KRjmnkwdvfJJCCMS">]()
+<img src="https://ipfs.io/ipfs/QmS4hxinTvLiMxQsS6PmnuVoagmFp3KRjmnkwdvfJJCCMS">
 # Malicious-Contract-Detector
 
 The Malicious Contract Detector project aims to use advanced machine learning techniques to analyze the code of new contracts and identify potential issues or vulnerabilities. The project is divided into two main parts: research and development.
