@@ -1,4 +1,4 @@
-<img src="https://ipfs.io/ipfs/QmS4hxinTvLiMxQsS6PmnuVoagmFp3KRjmnkwdvfJJCCMS">
+![logo](https://ipfs.io/ipfs/QmS4hxinTvLiMxQsS6PmnuVoagmFp3KRjmnkwdvfJJCCMS)
 
 # Malicious-Contract-Detector
 
