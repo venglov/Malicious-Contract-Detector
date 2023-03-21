@@ -1,0 +1,7 @@
+forta_agent>=0.1.11
+setuptools>=61.3.1
+huggingface-hub==0.13.3
+numpy==1.24.2
+torch==2.0.0
+transformers==4.27.2
+evmdasm==0.1.10
