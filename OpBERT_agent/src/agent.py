@@ -5,7 +5,6 @@ from forta_agent import get_json_rpc_url
 from web3 import Web3
 import torch as tc
 from pyevmasm import disassemble_hex
-from evmdasm import EvmBytecode
 from transformers import DistilBertTokenizerFast
 from transformers import DistilBertForSequenceClassification
 from transformers.utils import logging
