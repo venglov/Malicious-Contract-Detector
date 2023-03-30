@@ -4,4 +4,4 @@ huggingface-hub==0.13.3
 numpy==1.24.2
 torch==2.0.0
 transformers==4.27.2
-pyevmasm==0.2.3
+evmdasm==0.1.10

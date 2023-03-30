@@ -4,7 +4,7 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y python3 pip
 RUN python3 -m pip install --upgrade pip
 COPY requirements.txt ./
-COPY panoramix ./panoramix
+COPY ../jupyter/panoramix ./panoramix
 RUN python3 -m pip install --user -r requirements.txt
 RUN python3 -m pip install --user panoramix/
 
