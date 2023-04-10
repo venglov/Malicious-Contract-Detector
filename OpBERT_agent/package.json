@@ -1,6 +1,6 @@
 {
   "name": "opcodes-bert-agent",
-  "version": "0.0.2",
+  "version": "0.2.0",
   "description": "OpBERT malicious contract detector",
   "chainIds": [
     1, 137, 10, 56, 250, 42161, 43114

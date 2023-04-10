@@ -12,6 +12,7 @@ import warnings
 from src.findings import MaliciousContractFindings
 from src.logger import logger
 import logging as logg
+import pandas as pd
 
 logging.set_verbosity_error()
 warnings.filterwarnings("ignore")
@@ -21,6 +22,8 @@ web3 = Web3(Web3.HTTPProvider(get_json_rpc_url()))
 model = None
 tokenizer = None
 device = 'cpu'
+# contracts = {'contract_address': [], 'opcodes': []}
+# firstrun = True
 
 
 def initialize():
@@ -30,7 +33,7 @@ def initialize():
 
     global tokenizer, model
     model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased")
-    model.load_state_dict(tc.load("./src/opcodes_model_weights_v2.pth", map_location=tc.device('cpu')))
+    model.load_state_dict(tc.load("./src/opcodes_model_weights_v5.pth", map_location=tc.device('cpu')))
     tokenizer = DistilBertTokenizerFast.from_pretrained("distilbert-base-uncased")
     model.eval()
     logger.info("Model loaded successfully")
@@ -100,8 +103,21 @@ def detect_malicious_contract(w3, from_, created_contract_address) -> list:
                 opcodes += f'0x{j.operand} '
         opcodes = opcodes[:-1]
 
+        # if len(opcodes) > 10:
+        #
+        #     contracts['contract_address'].append(created_contract_address)
+        #     contracts['opcodes'].append(opcodes)
+        #
+        # print(len(contracts['opcodes']))
+        # if len(contracts['opcodes']) % 10 == 0:
+        #
+        #     # df1 = pd.read_csv("contracts.csv")
+        #     df2 = pd.DataFrame(contracts)
+        #     df2['malicious'] = False
+        #     # df = pd.concat([df1, df2], ignore_index=True)
+        #     df2.to_csv("contracts.csv") #TODO
+
         inputs = tokenizer([opcodes], padding="max_length", truncation=True)
-        print(inputs)
         item = {key: tc.tensor(val[0]) for key, val in inputs.items()}
         input_ids = tc.tensor(item["input_ids"]).to(device)
         attention_mask = tc.tensor(item["attention_mask"]).to(device)
